@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://Scripts/script_projectile.gd" type="Script" id=1]
-[ext_resource path="res://Sources/Images/icon.png" type="Texture" id=2]
+[ext_resource path="res://Sources/Images/sprite_blue_ball/sprite_big_blue2.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
