@@ -4,7 +4,7 @@ extends Area2D
 
 export var speed = 10
 onready var animation = get_node("AnimationPlayer")
-var direction = Vector2(0, 0) # FOR THE CHARACTER 
+var direction = Vector2(1, 1) # FOR THE CHARACTER 
 export var deathAnimationName = "enter name"
 export var continuousAnimationName = "enter name"
 
@@ -52,6 +52,7 @@ func setDirection(mousevector):
 
 func setSpeed( desiredVelocity ):
 	speed = desiredVelocity
+
 
 	
 	
