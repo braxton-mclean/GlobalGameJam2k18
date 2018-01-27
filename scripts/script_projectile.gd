@@ -2,37 +2,33 @@ extends Area2D
 
 # class member variables go here, for example:
 
-var damage = 10
-var SPEED = 50
+var speed = 5
 onready var animation = get_node("AnimationPlayer")
 var direction = Vector2(10, 10)  # FOR THE CHARACTER 
-
-var hit = false
+export var animationName = "enter name"
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	
 	set_fixed_process(true)
 	pass
 	
 
 func _fixed_process(delta):
-	translate(Vector2(delta*SPEED, delta*SPEED))
+	translate(direction*speed)
 
 func _hit_something():
-	hit = true
 	set_process(false)
 	_destroy()
 
-
 func _on_Projectile_area_enter( area ):
 	# Hit an enemy or asteroid
-	if (area.has_method("takedamage")):#included in the enemy
+	if (area.has_method("health")):#included in the enemy
 		# Duck typing at it's best
 		area.takedamage()
 		_hit_something()
 	print ("hit area2d")
+	get_node("AnimationPlayer").play(animationName)
 
  # replace with function body
 

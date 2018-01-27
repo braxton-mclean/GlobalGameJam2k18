@@ -1,14 +1,24 @@
-extends Node2D
+extends Area2D
 
 # class member variables go here, for example:
-export var addedvalue = 10
-var taken = false
+var method = "setMeLater"
+onready var animation = get_node("AnimationPlayer")
+export var animationName = "enter name"
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	#if get_owner() != null
-		#get_owner().health += addedvalue
-	#get_node("Area2D").connect("body_enter", this, "_getHealth")
-	
 	pass
+
+func _on_Pickup_area_enter( area ):
+	if(area.hasmethod(method)):
+		#area.method()
+		pass
+func _on_Pickup_body_enter( body ):
+	if(body.hasmethod(method)):
+		#body.method()
+		pass
+func _destroy():
+	animation.play(animationName)
+	queue_free()
+	
