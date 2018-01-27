@@ -5,12 +5,8 @@ extends Node2D
 # var b = "textvar"
 export var PLAYER_SPEED = 3
 export var BULLET_OFFSET = 30
-<<<<<<< HEAD
-export var BULLET_SPEED = 5
-=======
 export var BULLET_SPEED = 6
 var bullet
->>>>>>> cb345d14c02bb5f2fbfbdd77fe7c26259035a89a
 var weapon
 #Should be primary
 var bullet
