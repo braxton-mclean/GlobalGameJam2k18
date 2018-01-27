@@ -5,14 +5,14 @@ extends Node2D
 # var b = "textvar"
 export var PLAYER_SPEED = 10
 export var BULLET_OFFSET = 30
-export var BULLET_SPEED = 10
+export var BULLET_SPEED = 5
 var bullet
 
 # Used to calculate fire rate
 var delta_sum = 0
 
 func _ready():	
-	bullet = preload('res://scenes/scene_projectile.tscn')
+	bullet = preload('res://scenes/bullet.tscn')
 	set_process(true)
 
 func _process(delta):
@@ -51,6 +51,8 @@ func _shoot(player_position, mouse_position):
 			var projectile = bullet.instance()
 			var direction = mouse_position - player_position
 			projectile.set_pos(player_position + direction.normalized() * BULLET_OFFSET)
+			projectile.look_at(mouse_position)
+
 			projectile._set_direction(direction.normalized() * BULLET_SPEED)
 			get_parent().add_child(projectile)
 			delta_sum = 0

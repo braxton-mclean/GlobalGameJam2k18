@@ -5,7 +5,7 @@
 [ext_resource path="res://sources/images/sprite_blue_ball/sprite_big_blue2.png" type="Texture" id=3]
 [ext_resource path="res://sources/images/sprite_blue_ball/sprite_big_blue3.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -22,7 +22,7 @@ animations = [ {
 [node name="Projectile" type="Area2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 2.6792, 0, 0, 2.73023, 0.627883, -1.82756 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -53,7 +53,7 @@ autostart = true
 
 transform/pos = Vector2( 0.627883, -1.82756 )
 transform/scale = Vector2( 2.6792, 2.73023 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 

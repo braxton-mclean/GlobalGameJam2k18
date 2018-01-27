@@ -8,7 +8,7 @@
 script/script = ExtResource( 1 )
 PLAYER_SPEED = 10
 BULLET_OFFSET = 30
-BULLET_SPEED = 10
+BULLET_SPEED = 5
 
 [node name="Sprite" type="Sprite" parent="."]
 
