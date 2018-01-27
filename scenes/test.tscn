@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Scenes/scene_projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/scene_pickup.tscn" type="PackedScene" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Projectile" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( -38.3656, 41.6077 )
+
+[node name="Pickup" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 116.177, 88.6191 )
+
+
