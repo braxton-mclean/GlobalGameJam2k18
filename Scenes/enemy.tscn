@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Sources/Images/20180126_225935.tex" type="Texture" id=1]
+[ext_resource path="res://Scripts/enemy_base.gd" type="Script" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 344, 79 )
+texture = ExtResource( 1 )
+script/script = ExtResource( 2 )
+
+

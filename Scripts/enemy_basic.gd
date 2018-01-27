@@ -3,8 +3,10 @@ extends Node2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
+var room
 var player
 
 func _ready():
-	player = get_node("player")
+	# Called every time the node is added to the scene.
+	# Initialization here
 	pass
