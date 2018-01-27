@@ -1692,28 +1692,24 @@ modulate = Color( 1, 1, 1, 0.218588 )
 [node name="sprite_cobblestone_floor3" type="Sprite" parent="FloorSpaceNode"]
 
 transform/pos = Vector2( 304, 336 )
-transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 4 )
 modulate = Color( 1, 1, 1, 0.218588 )
 
 [node name="sprite_cobblestone_floor4 2" type="Sprite" parent="FloorSpaceNode"]
 
 transform/pos = Vector2( 464, 336 )
-transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 4 )
 modulate = Color( 1, 1, 1, 0.218588 )
 
 [node name="sprite_cobblestone_floor43" type="Sprite" parent="FloorSpaceNode"]
 
 transform/pos = Vector2( 688, 208 )
-transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 4 )
 modulate = Color( 1, 1, 1, 0.218588 )
 
 [node name="sprite_cobblestone_floor44" type="Sprite" parent="FloorSpaceNode"]
 
 transform/pos = Vector2( 752, 304 )
-transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 4 )
 modulate = Color( 1, 1, 1, 0.218588 )
 
