@@ -19,7 +19,9 @@ gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 script/script = ExtResource( 1 )
-animationName = "enter name"
+speed = 10
+deathAnimationName = "enter name"
+continuousAnimationName = "enter name"
 
 [node name="Sprite" type="Sprite" parent="."]
 

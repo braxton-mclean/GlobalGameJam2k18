@@ -7,10 +7,10 @@
 
 [node name="Projectile" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( -38.3656, 41.6077 )
+transform/pos = Vector2( 154.543, 72.5062 )
 
 [node name="Pickup" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 116.177, 88.6191 )
+transform/pos = Vector2( 344.453, 269.884 )
 
 

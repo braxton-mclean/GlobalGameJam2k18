@@ -2,14 +2,16 @@ extends Area2D
 
 # class member variables go here, for example:
 
-var speed = 5
+export var speed = 10
 onready var animation = get_node("AnimationPlayer")
-var direction = Vector2(10, 10)  # FOR THE CHARACTER 
-export var animationName = "enter name"
+var direction = Vector2(0, 0) # FOR THE CHARACTER 
+export var deathAnimationName = "enter name"
+export var continuousAnimationName = "enter name"
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
+	animation.play(continuousAnimationName)
 	set_fixed_process(true)
 	pass
 	
@@ -28,7 +30,7 @@ func _on_Projectile_area_enter( area ):
 		area.takedamage()
 		_hit_something()
 	print ("hit area2d")
-	get_node("AnimationPlayer").play(animationName)
+	get_node("AnimationPlayer").play(deathAnimationName)
 
  # replace with function body
 
@@ -44,8 +46,12 @@ func _destroy():
 func _on_Timer_timeout():
 	queue_free()
 	_destroy()
-	
 
+func setDirection(mousevector):
+	direction = mousevector
+
+func setSpeed( desiredVelocity ):
+	speed = desiredVelocity
 
 	
 	
