@@ -3,9 +3,14 @@ extends Node2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-export var PLAYER_SPEED = 10
+export var PLAYER_SPEED = 3
 export var BULLET_OFFSET = 30
+<<<<<<< HEAD
 export var BULLET_SPEED = 5
+=======
+export var BULLET_SPEED = 6
+var bullet
+>>>>>>> cb345d14c02bb5f2fbfbdd77fe7c26259035a89a
 var weapon
 #Should be primary
 var bullet
@@ -72,9 +77,16 @@ func _shoot(player_position, mouse_position):
 	if Input.is_action_pressed("left_click"):
 		var projectile = weapon.instance()		
 		if delta_sum > projectile._get_fire_rate():
-			var direction = mouse_position - player_position
+			var middle_of_screen = get_viewport_rect().size
+			middle_of_screen *= .5
+			print("Mouse:" + str(mouse_position))
+			print("middle:" + str(middle_of_screen))
+			
+			var direction = middle_of_screen - mouse_position
+			direction = direction * -1
+			
 			projectile.set_pos(player_position + direction.normalized() * BULLET_OFFSET)
-			projectile.look_at(mouse_position)
+			projectile.look_at(direction)
 
 			projectile._set_direction(direction.normalized() * BULLET_SPEED)
 			get_parent().add_child(projectile)
