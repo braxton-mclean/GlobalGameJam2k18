@@ -6,6 +6,9 @@
 [node name="player" type="Node2D"]
 
 script/script = ExtResource( 1 )
+PLAYER_SPEED = 3
+BULLET_OFFSET = 30
+BULLET_SPEED = 6
 
 [node name="Sprite" type="Sprite" parent="."]
 
