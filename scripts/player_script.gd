@@ -1,9 +1,5 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# get_node("res://scenes/scene_weapon_manager.tscn")
-# get_node("res://scripts/script_weapons.gd")
-
 enum player_type_enum{HACKER, SNIPER, INFANTRY}
 export var player_type = player_type_enum.INFANTRY
 var weapon_pack
