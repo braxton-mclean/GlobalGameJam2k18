@@ -9,6 +9,7 @@ var direction = Vector2(1, 1) # FOR THE CHARACTER
 export var deathAnimationName = "enter name"
 export var continuousAnimationName = "enter name"
 
+var fire_rate = .1
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization 
@@ -46,6 +47,8 @@ func _destroy():
 func _on_Timer_timeout():
 	queue_free()
 
+func _get_fire_rate():
+	return fire_rate
 
 func _set_direction(vector):
 	direction = vector

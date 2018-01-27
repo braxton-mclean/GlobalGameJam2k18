@@ -7,12 +7,15 @@ export var PLAYER_SPEED = 10
 export var BULLET_OFFSET = 30
 export var BULLET_SPEED = 5
 var bullet
-
+var weapon
+var orb
 # Used to calculate fire rate
 var delta_sum = 0
-
+var weapon_swap_cooldown = 0
 func _ready():	
 	bullet = preload('res://scenes/bullet.tscn')
+	orb = preload('res://scenes/scene_projectile.tscn')
+	weapon = orb
 	set_process(true)
 
 func _process(delta):
@@ -21,12 +24,18 @@ func _process(delta):
 
 	
 	delta_sum = delta_sum + delta
-	
+	weapon_swap_cooldown = weapon_swap_cooldown + delta
+#	print(weapon_swap_cooldown)
 	_move()
 	
 	_shoot(player_pos, mouse_pos)
+	_swap_weapon()
 #	get_node('Sprite').set_pos(player_pos)
-# - player_pos.x, mouse_y - player_pos.y)
+
+	if delta_sum > 100:
+		delta_sum = 1
+	if weapon_swap_cooldown > 100:
+		weapon_swap_cooldown = 1
 
 func _move():
 	var direction_vert = Vector2(0,0)
@@ -45,10 +54,20 @@ func _move():
 	var direction = (direction_vert + direction_hor).normalized()
 	self.translate(direction * PLAYER_SPEED)
 	
+func _swap_weapon():
+	if Input.is_action_pressed("right_click"):
+		if weapon_swap_cooldown > 0.2:
+			
+			if weapon != orb:
+				weapon = orb
+			else:
+				weapon = bullet
+			weapon_swap_cooldown = 0
+		
 func _shoot(player_position, mouse_position):
 	if Input.is_action_pressed("left_click"):
-		if delta_sum > .5:
-			var projectile = bullet.instance()
+		var projectile = weapon.instance()		
+		if delta_sum > projectile._get_fire_rate():
 			var direction = mouse_position - player_position
 			projectile.set_pos(player_position + direction.normalized() * BULLET_OFFSET)
 			projectile.look_at(mouse_position)

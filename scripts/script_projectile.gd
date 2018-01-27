@@ -3,17 +3,18 @@ extends Area2D
 # class member variables go here, for example:
 
 export var speed = 50
-onready var animation = get_node("AnimationPlayer")
+#onready var animation = get_node("AnimationPlayer")
 onready var bullet_sprite = get_node("AnimatedSprite")
 var direction = Vector2(1, 1) # FOR THE CHARACTER 
 export var deathAnimationName = "enter name"
 export var continuousAnimationName = "enter name"
 
+var fire_rate = .3
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization 
 	set_fixed_process(true)
-	pass
+	
 	
 
 func _fixed_process(delta):
@@ -49,6 +50,9 @@ func _on_Timer_timeout():
 
 func _set_direction(vector):
 	direction = vector
+
+func _get_fire_rate():
+	return fire_rate
 
 func setSpeed( desiredVelocity ):
 	speed = desiredVelocity
