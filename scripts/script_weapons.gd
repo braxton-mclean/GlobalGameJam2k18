@@ -9,6 +9,7 @@ var weaponsBackSprite = [arBack, sniperBack, pistolBack, etcBack]
 var weapon
 var numOfWeapon
 
+#TODO NEEDS TO FIND THE PROPER FILE OF THE WEAPON sprite
 var arFront = load("res://sources/images/sprite_blue_ball/sprite_big_blue1.png")
 var sniperFront = load("res://sources/images/sprite_blue_ball/sprite_big_blue1.png")
 var pistolFront = load("res://sources/images/sprite_blue_ball/sprite_big_blue1.png")
@@ -19,10 +20,15 @@ var sniperBack = load("res://sources/images/sprite_blue_ball/sprite_big_blue1.pn
 var pistolBack = load("res://sources/images/sprite_blue_ball/sprite_big_blue1.png")
 var etcBack = load("res://sources/images/sprite_blue_ball/sprite_big_blue1.png")
 
-var maxAmmo
-var currentAmmo
+var maxMagAmmo1
+var maxStashAmmo1
+var maxMagAmmo
 var fireRate
 var damage
+#MAY NOT NEED
+#var healthDrop
+var ammoDrop
+var weaponParamArr = [maxAmmo, currentAmmo, fireRate, damage]
 #var ar = load("res://sources/images/sprite_blue_ball/sprite_big_blue1.png")
 #var sniper = load("res://sources/images/sprite_blue_ball/sprite_big_blue1.png")
 #var pistol = load("res://sources/images/sprite_blue_ball/sprite_big_blue1.png")
@@ -33,30 +39,35 @@ func _ready():
 	# Initialization here
 	setWeaponParams()
 	pass
-	
-	
-func setWeaponParams():
-	if(weaponList.ar == numOfWeapon):
-		maxAmmo = 30
-		currentAmmo = 30
-		fireRate = .5
-		damage = 25
-	elif(weaponList.sniper == numOfWeapon):
-		maxAmmo = 5
-		currentAmmo = 5
-		fireRate = .05
-		damage = 100
-	elif(weaponList.pistol == numOfWeapon):
-		maxAmmo = 10
-		currentAmmo = 10
-		fireRate = .2
-		damage = 10
-	elif(weaponList.etc == numOfWeapon):
-		maxAmmo = 0
-		currentAmmo = 0
-		fireRate = 0
-		damage = 0
-	
-	
+
 func getWeapon(weaponID):
 	numOfWeapon = weaponID
+
+func setWeaponParams():
+	if(weaponList.ar == numOfWeapon):
+		maxMagAmmo = 30
+		maxStashAmmo = 180
+		fireRate = .5
+		damage = 25
+		ammoDrop = 30
+	elif(weaponList.sniper == numOfWeapon):
+		maxMagAmmo = 5
+		maxStashAmmo = 30
+		fireRate = .05
+		damage = 100
+		ammoDrop = 7
+	elif(weaponList.pistol == numOfWeapon):
+		maxMagAmmo = 10
+		maxStashAmmo = 80
+		fireRate = .2
+		damage = 10
+		ammoDrop = 15
+	elif(weaponList.etc == numOfWeapon):
+		maxMagAmmo = 0
+		maxStashAmmo = 0
+		fireRate = 0
+		damage = 0
+		ammoDrop = 0
+	
+	weaponParamArr = [maxAmmo, currentAmmo, fireRate, damage, ammoDrop]
+	
