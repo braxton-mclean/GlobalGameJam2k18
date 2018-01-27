@@ -1,9 +1,14 @@
 [gd_scene load_steps=2 format=1]
 
-[ext_resource path="res://Scripts/script_room.gd" type="Script" id=1]
+[ext_resource path="res://scripts/script_room.gd" type="Script" id=1]
 
 [node name="Node2D" type="Node2D"]
 
 script/script = ExtResource( 1 )
+height_max = 20
+width_max = 25
+should_be_random = true
+height_min = 10
+width_min = 10
 
 
