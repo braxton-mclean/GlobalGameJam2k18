@@ -6,15 +6,19 @@ extends Node2D
 export var PLAYER_SPEED = 10
 export var BULLET_OFFSET = 30
 export var BULLET_SPEED = 5
-var bullet
 var weapon
+#Should be primary
+var bullet
+#should be secondary
 var orb
 # Used to calculate fire rate
 var delta_sum = 0
 var weapon_swap_cooldown = 0
 func _ready():	
-	bullet = preload('res://scenes/bullet.tscn')
+	#need an array or something to keep track of all the different bullet types and where the sprites are
+	bullet = preload('res://scenes/bullet.tscn') 
 	orb = preload('res://scenes/scene_projectile.tscn')
+	#bullet speed should also be taken right here from the weapons manager
 	weapon = orb
 	set_process(true)
 
