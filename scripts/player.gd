@@ -66,18 +66,21 @@ func _swap_weapon():
 		
 func _shoot(player_position, mouse_position):
 	if Input.is_action_pressed("left_click"):
-		var projectile = weapon.instance()		
 		if delta_sum > projectile._get_fire_rate():
+			var projectile = weapon.instance()
+			projectile.set_pos(player_position)
+			
+			
 			var middle_of_screen = get_viewport_rect().size
 			middle_of_screen *= .5
-			print("Mouse:" + str(mouse_position))
-			print("middle:" + str(middle_of_screen))
 			
 			var direction = middle_of_screen - mouse_position
 			direction = direction * -1
+			print(direction)
+			var projectile_spawn_loc = player_position + direction.normalized() * BULLET_OFFSET
+			projectile.look_at(projectile_spawn_loc)
+			projectile.set_pos(projectile_spawn_loc)
 			
-			projectile.set_pos(player_position + direction.normalized() * BULLET_OFFSET)
-			projectile.look_at(direction)
 
 			projectile._set_direction(direction.normalized() * BULLET_SPEED)
 			get_parent().add_child(projectile)
