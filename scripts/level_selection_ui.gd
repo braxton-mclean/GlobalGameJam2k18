@@ -13,6 +13,7 @@ onready var level_3_node = get_node("MarginContainer/VerticalContainer/LevelSele
 #reference to all the UI characters or ui levels
 onready var char_selection = get_node("MarginContainer/VerticalContainer/CharSelection")
 onready var level_selection = get_node("MarginContainer/VerticalContainer/LevelSelection")
+onready var title_image = get_node("MarginContainer/VerticalContainer/LevelTitle")
 
 #reference to the ACTUAL levels
 onready var level_1_name = preload("res://scenes/level_1.tscn")
@@ -25,6 +26,7 @@ var level_list
 
 var player
 var player_instance
+var player_types
 
 var char_num
 
@@ -39,7 +41,7 @@ func _ready():
 	
 	player = preload("res://scenes/scene_player.tscn")
 	player_instance = player.instance()
-	player_instance.player_type = player_instance.player_type_enum.HACKER
+	player_types = [player_instance.player_type_enum.HACKER, player_instance.player_type_enum.SNIPER, player_instance.player_type_enum.INFANTRY]
 
 #The next three functions say that that particular player cannot be chosen again. After the button is pressed, it toggles the UI so you can select a level
 func _on_hacker_pressed():
@@ -70,11 +72,11 @@ func char_select(num):
 	game_info_instance.b_can_pick_character[num] = false
 	level_selection_visibility_toggle()
 	char_num = num
+	player_instance.player_type = player_types[num]
 
 func level_select(num):
 	game_info_instance.b_can_pick_level[num] = false
 	hide_UI()
-	game_info_instance.level_num = num
 	get_tree().get_root().add_child(level_list[num])
 	get_tree().get_root().add_child(player_instance)
 
