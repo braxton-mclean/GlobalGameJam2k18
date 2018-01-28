@@ -16,7 +16,7 @@ onready var level_selection = get_node("MarginContainer/VerticalContainer/LevelS
 onready var title_image = get_node("MarginContainer/VerticalContainer/LevelTitle")
 
 #reference to the ACTUAL levels
-onready var level_1_name = preload("res://scenes/level_1.tscn")
+onready var level_1_name = preload("res://scenes/level_1_1.tscn")
 var level_1_instance
 #onready var level_2_name = preload("res://scenes/level_2.tscn")
 var level_2_instance
@@ -78,8 +78,9 @@ func level_select(num):
 	game_info_instance.b_can_pick_level[num] = false
 	hide_UI()
 	get_tree().get_root().add_child(level_list[num])
-	player_instance.set_pos(Vector2(250, 250))
-	get_tree().get_root().add_child(player_instance)
+	player_instance.set_pos(level_list[num].spawn_location)
+	player_instance.set_name("player")
+	level_list[num].add_child(player_instance)
 	
 	
 

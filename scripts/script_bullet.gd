@@ -46,8 +46,10 @@ func _on_projectile_body_enter(body):
 			pass
 		elif (body.has_method('take_damage')):
 			body.take_damage(self.damage)
-			if(style != style_enum.TRACE):
-				destroy()
+			if(style == style_enum.TRACE):
+				return
+		if(style != style_enum.TRACE):
+			destroy()
 		else:
 			pass
 

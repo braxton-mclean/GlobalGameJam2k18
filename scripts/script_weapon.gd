@@ -29,16 +29,16 @@ var bullet_speed
 
 func _enter_tree():
 	if(weapon_type == weapon_list.AR):
-		set_weapon_params(30, 180, .5, 25, 30, 300, bullet_styles.PROJ)
+		set_weapon_params(30, 180, .5, 25, 30, 350, bullet_styles.PROJ)
 		bullet_type = preload('res://scenes/ammo/scene_metal_bullet.tscn')
 	if(weapon_type == weapon_list.SNIPER):
 		set_weapon_params(5, 30, 1, 100, 7, 0, bullet_styles.TRACE)
 		bullet_type = preload('res://scenes/ammo/scene_laser_burst.tscn')
 	if(weapon_type == weapon_list.PISTOL):
-		set_weapon_params(10, 80, 1, 10, 15, 200, bullet_styles.PROJ)
+		set_weapon_params(10, 80, 1, 20, 15, 300, bullet_styles.PROJ)
 		bullet_type = preload('res://scenes/ammo/scene_metal_bullet.tscn')
 	if(weapon_type == weapon_list.ROBOT):
-		set_weapon_params(5, 30, 1, 10, 7, 200, bullet_styles.PROJ)
+		set_weapon_params(5, 30, 1, 30, 7, 200, bullet_styles.PROJ)
 		bullet_type = preload('res://scenes/ammo/scene_blue_ball.tscn')
 
 func _ready():

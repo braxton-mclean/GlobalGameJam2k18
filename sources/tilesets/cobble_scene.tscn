@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=19 format=1]
 
 [ext_resource path="res://sources/images/sprite_floor_tiles/sprite_stone_wall/sprite_stonewall_jackson1.png" type="Texture" id=1]
 [ext_resource path="res://sources/images/sprite_floor_tiles/sprite_stone_wall/sprite_stonewall_jackson2.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://sources/images/sprite_floor_tiles/sprite_cobblestone_floor.png" type="Texture" id=8]
 [ext_resource path="res://sources/images/sprite_stone_wall/sprite_stonewall_jackson_rightwall.png" type="Texture" id=9]
 [ext_resource path="res://sources/images/sprite_stone_wall/sprite_stonewall_jackson_leftwall.png" type="Texture" id=10]
+[ext_resource path="res://sources/images/sprite_railgun/sprite_railgun10.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -40,6 +41,11 @@ extents = Vector2( 16, 16 )
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -204,6 +210,31 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cobble_Wall_Left/StaticBody2D"]
 
 shape = SubResource( 6 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Invisible_Wall" type="Sprite" parent="."]
+
+transform/pos = Vector2( 256, 64 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Invisible_Wall"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 7 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Invisible_Wall/StaticBody2D"]
+
+shape = SubResource( 7 )
 trigger = false
 _update_shape_index = 0
 

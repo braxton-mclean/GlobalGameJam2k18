@@ -16,13 +16,15 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 7.0
 height = 20.0
 
 [node name="Projectile" type="Node2D"]
 
+transform/scale = Vector2( 2, 2 )
 script/script = ExtResource( 1 )
 BASE_SPEED = 50
+style = 1
 death_animation_name = "enter name"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -63,8 +65,8 @@ autostart = true
 
 [connection signal="body_enter" from="Area2D" to="." method="_on_projectile_body_enter"]
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 

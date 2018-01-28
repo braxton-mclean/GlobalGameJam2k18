@@ -88,15 +88,14 @@ alignment = 1
 
 [node name="HackerContainer" type="HBoxContainer" parent="MarginContainer/VerticalContainer/CharSelection"]
 
-rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
 size_flags/vertical = 2
-margin/left = 60.0
-margin/top = 50.0
-margin/right = 396.0
-margin/bottom = 497.0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 336.0
+margin/bottom = 447.0
 alignment = 1
 
 [node name="Hacker" type="TextureButton" parent="MarginContainer/VerticalContainer/CharSelection/HackerContainer"]
@@ -119,15 +118,14 @@ params/stretch_mode = 0
 
 [node name="SniperContainer" type="HBoxContainer" parent="MarginContainer/VerticalContainer/CharSelection"]
 
-rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
 size_flags/vertical = 2
-margin/left = 400.0
-margin/top = 50.0
-margin/right = 736.0
-margin/bottom = 497.0
+margin/left = 340.0
+margin/top = 0.0
+margin/right = 676.0
+margin/bottom = 447.0
 alignment = 1
 
 [node name="Sniper" type="TextureButton" parent="MarginContainer/VerticalContainer/CharSelection/SniperContainer"]
@@ -150,15 +148,14 @@ params/stretch_mode = 0
 
 [node name="InfantryContainer" type="HBoxContainer" parent="MarginContainer/VerticalContainer/CharSelection"]
 
-rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
 size_flags/vertical = 2
-margin/left = 740.0
-margin/top = 50.0
-margin/right = 1076.0
-margin/bottom = 497.0
+margin/left = 680.0
+margin/top = 0.0
+margin/right = 1016.0
+margin/bottom = 447.0
 alignment = 1
 
 [node name="Infantry" type="TextureButton" parent="MarginContainer/VerticalContainer/CharSelection/InfantryContainer"]
