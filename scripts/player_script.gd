@@ -161,7 +161,6 @@ func check_swap_weapon():
 
 func shoot(player_position, mouse_position):
 	if Input.is_action_pressed("left_click"):
-		print("left click")
 		if fire_rate_delta > active_weapon.fire_rate:
 			if(active_weapon.bullet_style == active_weapon.bullet_styles.PROJ):
 				var projectile = active_weapon.bullet_type.instance()
@@ -192,7 +191,6 @@ func shoot(player_position, mouse_position):
 				in_front_ray.set_type_mask(Physics2DDirectSpaceState.TYPE_MASK_STATIC_BODY)
 				in_front_ray.force_raycast_update()
 				var end_of_line = in_front_ray.get_collision_point()
-				print("Entering for")
 				for num in range(32, projectile_spawn_loc.distance_to(end_of_line), 32):
 					var projectile = active_weapon.bullet_type.instance()
 					projectile.set_pos(projectile_spawn_loc + (direction.normalized() * num))

@@ -1,9 +1,29 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://scripts/level_1_1_info.gd" type="Script" id=1]
 [ext_resource path="res://sources/tilesets/factory.tres" type="TileSet" id=2]
 [ext_resource path="res://scenes/scene_enemy_robot.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sources/images/sprite_floor_tiles/sprite_factory_assets/sprite_factoryasset03.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
 
 [node name="RoomRoot" type="Node2D"]
 
@@ -76,5 +96,85 @@ texture = ExtResource( 4 )
 
 transform/pos = Vector2( 1232, -16 )
 texture = ExtResource( 4 )
+
+[node name="Room1_Area" type="Area2D" parent="."]
+
+transform/pos = Vector2( 1120, 672 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1_Area"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Room2_Area" type="Area2D" parent="."]
+
+transform/pos = Vector2( 896, 128 )
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room2_Area"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Room3_Area" type="Area2D" parent="."]
+
+transform/pos = Vector2( -32, 320 )
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room3_Area"]
+
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Room4_Area" type="Area2D" parent="."]
+
+transform/pos = Vector2( -512, 704 )
+input/pickable = true
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room4_Area"]
+
+shape = SubResource( 4 )
+trigger = false
+_update_shape_index = 0
+
+[connection signal="body_enter" from="Room1_Area" to="." method="_on_r1_body_enter"]
+
+[connection signal="body_enter" from="Room2_Area" to="." method="_on_r2_body_enter"]
+
+[connection signal="body_enter" from="Room3_Area" to="." method="_on_r3_body_enter"]
+
+[connection signal="body_enter" from="Room4_Area" to="." method="_on_r4_body_enter"]
 
 

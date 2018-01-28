@@ -55,7 +55,6 @@ func do_ai_pattern():
 	
 func shoot(player_position, dir_to_player):
 	if fire_rate_delta > weapon.fire_rate:
-		print(fire_rate_delta)
 		var projectile = weapon.bullet_type.instance()
 		projectile.set_new_owner(self)
 		projectile.set_pos(self.get_pos())

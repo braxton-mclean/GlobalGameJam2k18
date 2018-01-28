@@ -4,8 +4,34 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 export var spawn_location = Vector2(1088, 864)
+var list_of_transmission_buffs = ["SNIPER"]
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	pass
+
+
+func _on_r1_body_enter( area ):
+	print("Entered area 1")
+	activate_buff(1, list_of_transmission_buffs)
+	pass # replace with function body
+
+
+func _on_r2_body_enter( area ):
+	activate_buff(2, list_of_transmission_buffs)
+	pass # replace with function body
+
+
+func _on_r3_body_enter( area ):
+	activate_buff(3, list_of_transmission_buffs)
+	pass # replace with function body
+
+
+func _on_r4_body_enter( area ):
+	activate_buff(4, list_of_transmission_buffs)
+	pass # replace with function body
+
+func activate_buff(room_num, list_of_transmission_buffs):
+	var buff_manager = get_tree().get_root().get_node("BuffManager")
+	buff_manager.activate_buffs(room_num, list_of_transmission_buffs)

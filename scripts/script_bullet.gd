@@ -38,7 +38,6 @@ func _on_projectile_area_enter( area ):
 
 func _on_projectile_body_enter(body):
 	# Hit the tilemap
-	print(body)
 	if (projectile_owner == body):
 		pass
 	else:

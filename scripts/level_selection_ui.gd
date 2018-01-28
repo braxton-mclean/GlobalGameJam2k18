@@ -32,10 +32,17 @@ var char_num
 
 func _ready():
 	# Called every time the node is added to the scene.
+	
 	game_info_ref = preload("res://scenes/master_scene.tscn")
 	game_info_instance = game_info_ref.instance()
 	
 	level_1_instance = level_1_name.instance()
+	
+	print("adding")
+	var buff_manager = preload("res://scenes/buff_manager_scene.tscn")
+	var buff_manager_instance = buff_manager.instance()
+	get_tree().get_root().call_deferred("add_child", buff_manager_instance)
+	print("added")
 	
 	level_list = [level_1_instance]#, level_2_name, level_3_name]
 	
