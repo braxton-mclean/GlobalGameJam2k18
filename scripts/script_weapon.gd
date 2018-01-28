@@ -37,13 +37,13 @@ var bullet_speed
 
 func _enter_tree():
 	if(weapon_type == weapon_list.AR):
-		set_weapon_params(30, 180, .1, 25, 30, 40)
+		set_weapon_params(30, 180, .12, 25, 30, 15)
 		bullet_type = preload('res://scenes/ammo/scene_metal_bullet.tscn')
 	if(weapon_type == weapon_list.SNIPER):
 		set_weapon_params(5, 30, 1, 100, 7, 0)
 		bullet_type = preload('res://scenes/ammo/scene_blue_ball.tscn')
 	if(weapon_type == weapon_list.PISTOL):
-		set_weapon_params(10, 80, .5, 10, 15, 20)
+		set_weapon_params(10, 80, .5, 10, 15, 15)
 		bullet_type = preload('res://scenes/ammo/scene_metal_bullet.tscn')
 
 func _ready():

@@ -31,10 +31,9 @@ func _ready():
 	if(weapon_2 != null):
 		self.add_child(weapon_2)
 	active_weapon = weapon_1
-	print(active_weapon)
-	set_fixed_process(true)
+	set_process(true)
 
-func _fixed_process(delta):
+func _process(delta):
 	var mouse_pos = get_viewport().get_mouse_pos()
 	var player_pos = self.get_pos()
 	
@@ -44,6 +43,24 @@ func _fixed_process(delta):
 	
 	shoot(player_pos, mouse_pos)
 	check_swap_weapon()
+
+func configure_player():
+	weapon_pack = preload("res://scenes/scene_weapon.tscn")
+	weapon_1 = weapon_pack.instance()
+	weapon_2 = weapon_pack.instance()
+	var sprite = get_node(AnimatedSprite)
+	if(player_type == player_type_enum.HACKER):
+		weapon_1.weapon_type = weapon_1.weapon_list.PISTOL
+	elif(player_type == player_type_enum.SNIPER):
+		weapon_1.weapon_type = weapon_1.weapon_list.SNIPER
+		weapon_2.weapon_type = weapon_2.weapon_list.PISTOL
+	elif(player_type == player_type_enum.INFANTRY):
+		weapon_1.weapon_type = weapon_1.weapon_list.AR
+		weapon_2.weapon_type = weapon_2.weapon_list.PISTOL
+	self.add_child(weapon_1)
+	if(weapon_2 != null):
+		self.add_child(weapon_2)
+	active_weapon = weapon_1
 
 func move_boi(delta):
 	var direction_vert = Vector2(0,0)

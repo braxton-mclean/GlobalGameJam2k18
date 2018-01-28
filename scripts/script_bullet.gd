@@ -38,7 +38,7 @@ func destroy():
 	queue_free()
 	
 func _on_timer_timeout():
-	queue_free()
+	destroy()
 
 func set_direction(vector):
 	direction = vector
