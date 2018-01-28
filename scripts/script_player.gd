@@ -15,7 +15,6 @@ var weapon_1
 var weapon_2
 var active_weapon
 
-
 # Used to calculate fire rate
 var fire_rate_delta = 0
 var weapon_swap_cooldown = 0
@@ -41,7 +40,6 @@ func _ready():
 func _process(delta):
 	var mouse_pos = get_viewport().get_mouse_pos()
 	var player_pos = self.get_pos()
-	
 	fire_rate_delta = fire_rate_delta + delta
 	weapon_swap_cooldown = weapon_swap_cooldown + delta
 	move()
