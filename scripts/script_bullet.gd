@@ -15,11 +15,13 @@ func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization 
 	set_fixed_process(true) #maybe weird?
-	
-	
+	get_node("AnimatedSprite").set_frame(0)
+	get_node("AnimatedSprite").play("default")
+	pass
 	
 func _fixed_process(delta):
-	translate(direction*BASE_SPEED*delta)
+	if(BASE_SPEED != 0 and direction != null):
+		translate(direction*BASE_SPEED*delta)
 
 
 
@@ -28,7 +30,7 @@ func _on_projectile_area_enter( area ):
 	if (area.has_method("projectile_collide")):#included in the enemy
 		# Duck typing at it's best
 		area.projectile_collide()
-	print ("hit area2d")
+  print ("hit area2d")
 
 func _on_projectile_body_enter(body):
 	# Hit the tilemap
@@ -39,8 +41,6 @@ func _on_projectile_body_enter(body):
 		if (body.has_method('take_damage')):
 			body.take_damage(self.damage)
 			destroy()
-			
-	
 
 func destroy():
 	#add animation
@@ -58,6 +58,10 @@ func set_speed( desired_velocity ):
 
 func set_damage(new_damage):
 	self.damage = new_damage
-	
-func set_owner(new_owner):
+  
+func set_new_owner(new_owner):
 	projectile_owner = new_owner
+
+func _on_animatedsprite_finished():
+	destroy()
+	pass # replace with function body

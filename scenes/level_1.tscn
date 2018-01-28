@@ -10,7 +10,9 @@
 
 [node name="RoomRoot" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." groups=[
+"walls",
+]]
 
 mode = 0
 tile_set = ExtResource( 1 )
@@ -1824,5 +1826,4 @@ transform/pos = Vector2( 823, 136 )
 [node name="Enemy4" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 644, 112 )
-
 
