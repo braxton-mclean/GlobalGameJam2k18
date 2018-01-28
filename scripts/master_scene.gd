@@ -2,18 +2,22 @@ extends Node2D
 
 var level_ui
 var ui_instance
+var if_edited
+
 
 var player
 var player_instance
 #hacker = 0, sniper = 1, infantry = 2
-var b_can_pick_character = [true, true, true]
-var b_can_pick_level = [true, true, true]
+
 
 var main_menu
 
 var class_type
+var b_can_pick_character = [true, true, true]
+var b_can_pick_level = [true, true, true]
 
-
+var char_num
+var level_num
 
 func _ready():
 	level_ui = preload("res://scenes/level_selection_ui.tscn")
@@ -22,12 +26,24 @@ func _ready():
 	player = preload("res://scenes/player_scene.tscn")
 	player_instance = player.instance()
 	
+#	if(if_edited == true):
+#		var b_can_pick_character
+#		var b_can_pick_level 
+#	else:
+	b_can_pick_character = [true, true, true]
+	b_can_pick_level = [true, true, true]
+	
+	
+	
+	
 	#CREATE MAIN MENU
 		#MENU(PLAY) SHOULD ENABLE THE LEVELSELECTIONUI
 
+func finish_level(char_num, level_num):
+	#ui_instance.char_selection_visibility_toggle()
+	pass
 
-func finish_level():
-	ui_instance.char_selection_visibility_toggle()
+
 
 
 
@@ -60,4 +76,10 @@ func finish_level():
 	#IF LEVELNUM == 1
 		#ETC
 
-#
+#func set_used_character(used):
+#	b_can_pick_character[used] = false
+#	char_num = used
+#	
+#func set_used_level(used):
+#	b_can_pick_level[used] = false
+#	level_num = used

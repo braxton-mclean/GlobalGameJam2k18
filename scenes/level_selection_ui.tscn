@@ -75,9 +75,10 @@ stretch_mode = 4
 
 [node name="CharSelection" type="HBoxContainer" parent="MarginContainer/VerticalContainer"]
 
+rect/min_size = Vector2( 1016, 447 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 2
+size_flags/horizontal = 3
 size_flags/vertical = 3
 size_flags/stretch_ratio = 3.0
 margin/left = 0.0
@@ -88,15 +89,14 @@ alignment = 1
 
 [node name="HackerContainer" type="HBoxContainer" parent="MarginContainer/VerticalContainer/CharSelection"]
 
-rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
 size_flags/vertical = 2
-margin/left = 60.0
-margin/top = 50.0
-margin/right = 396.0
-margin/bottom = 497.0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 336.0
+margin/bottom = 447.0
 alignment = 1
 
 [node name="Hacker" type="TextureButton" parent="MarginContainer/VerticalContainer/CharSelection/HackerContainer"]
@@ -119,15 +119,14 @@ params/stretch_mode = 0
 
 [node name="SniperContainer" type="HBoxContainer" parent="MarginContainer/VerticalContainer/CharSelection"]
 
-rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
 size_flags/vertical = 2
-margin/left = 400.0
-margin/top = 50.0
-margin/right = 736.0
-margin/bottom = 497.0
+margin/left = 340.0
+margin/top = 0.0
+margin/right = 676.0
+margin/bottom = 447.0
 alignment = 1
 
 [node name="Sniper" type="TextureButton" parent="MarginContainer/VerticalContainer/CharSelection/SniperContainer"]
@@ -150,15 +149,14 @@ params/stretch_mode = 0
 
 [node name="InfantryContainer" type="HBoxContainer" parent="MarginContainer/VerticalContainer/CharSelection"]
 
-rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
 size_flags/vertical = 2
-margin/left = 740.0
-margin/top = 50.0
-margin/right = 1076.0
-margin/bottom = 497.0
+margin/left = 680.0
+margin/top = 0.0
+margin/right = 1016.0
+margin/bottom = 447.0
 alignment = 1
 
 [node name="Infantry" type="TextureButton" parent="MarginContainer/VerticalContainer/CharSelection/InfantryContainer"]
@@ -188,7 +186,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 3
 size_flags/stretch_ratio = 3.0
 margin/left = 0.0
-margin/top = 153.0
+margin/top = 491.0
 margin/right = 1016.0
 margin/bottom = 600.0
 alignment = 1
@@ -202,7 +200,7 @@ size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 336.0
-margin/bottom = 447.0
+margin/bottom = 109.0
 alignment = 0
 
 [node name="Level 1" type="TextureButton" parent="MarginContainer/VerticalContainer/LevelSelection/Level 1 Container"]
@@ -214,7 +212,7 @@ size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 336.0
-margin/bottom = 447.0
+margin/bottom = 109.0
 toggle_mode = true
 click_on_press = true
 enabled_focus_mode = 2
@@ -232,7 +230,7 @@ size_flags/vertical = 2
 margin/left = 340.0
 margin/top = 0.0
 margin/right = 676.0
-margin/bottom = 447.0
+margin/bottom = 109.0
 alignment = 0
 
 [node name="Level 2" type="TextureButton" parent="MarginContainer/VerticalContainer/LevelSelection/Level 2 Container"]
@@ -244,7 +242,7 @@ size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 336.0
-margin/bottom = 447.0
+margin/bottom = 109.0
 toggle_mode = true
 click_on_press = true
 enabled_focus_mode = 2
@@ -262,7 +260,7 @@ size_flags/vertical = 2
 margin/left = 680.0
 margin/top = 0.0
 margin/right = 1016.0
-margin/bottom = 447.0
+margin/bottom = 109.0
 alignment = 0
 
 [node name="Level 3" type="TextureButton" parent="MarginContainer/VerticalContainer/LevelSelection/Level 3 Container"]
@@ -274,7 +272,7 @@ size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 336.0
-margin/bottom = 447.0
+margin/bottom = 109.0
 toggle_mode = true
 click_on_press = true
 enabled_focus_mode = 2
@@ -283,31 +281,15 @@ textures/normal = ExtResource( 8 )
 params/resize_mode = 1
 params/stretch_mode = 0
 
-[connection signal="hide" from="MarginContainer/VerticalContainer/CharSelection" to="." method="_on_char_selection_hide"]
-
-[connection signal="hide" from="MarginContainer/VerticalContainer/CharSelection/HackerContainer/Hacker" to="." method="_on_hacker_hide"]
-
 [connection signal="pressed" from="MarginContainer/VerticalContainer/CharSelection/HackerContainer/Hacker" to="." method="_on_hacker_pressed"]
-
-[connection signal="hide" from="MarginContainer/VerticalContainer/CharSelection/SniperContainer/Sniper" to="." method="_on_sniper_hide"]
 
 [connection signal="pressed" from="MarginContainer/VerticalContainer/CharSelection/SniperContainer/Sniper" to="." method="_on_sniper_pressed"]
 
-[connection signal="hide" from="MarginContainer/VerticalContainer/CharSelection/InfantryContainer/Infantry" to="." method="_on_infantry_hide"]
-
 [connection signal="pressed" from="MarginContainer/VerticalContainer/CharSelection/InfantryContainer/Infantry" to="." method="_on_infantry_pressed"]
-
-[connection signal="draw" from="MarginContainer/VerticalContainer/LevelSelection" to="." method="_on_level_selection_draw"]
-
-[connection signal="hide" from="MarginContainer/VerticalContainer/LevelSelection/Level 1 Container/Level 1" to="." method="_on_level_1_hide"]
 
 [connection signal="pressed" from="MarginContainer/VerticalContainer/LevelSelection/Level 1 Container/Level 1" to="." method="_on_level_1_pressed"]
 
-[connection signal="hide" from="MarginContainer/VerticalContainer/LevelSelection/Level 2 Container/Level 2" to="." method="_on_level_2_hide"]
-
 [connection signal="pressed" from="MarginContainer/VerticalContainer/LevelSelection/Level 2 Container/Level 2" to="." method="_on_level_2_pressed"]
-
-[connection signal="hide" from="MarginContainer/VerticalContainer/LevelSelection/Level 3 Container/Level 3" to="." method="_on_level_3_hide"]
 
 [connection signal="pressed" from="MarginContainer/VerticalContainer/LevelSelection/Level 3 Container/Level 3" to="." method="_on_level_3_pressed"]
 
