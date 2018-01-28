@@ -2,8 +2,10 @@ extends Node2D
 
 # class member variables go here, for example:
 
+enum style_enum{TRACE, PROJ}
 export var BASE_SPEED = 50
 onready var bullet_sprite = get_node("AnimatedSprite")
+export var style = style_enum.PROJ
 var direction
 var damage
 export var death_animation_name = "enter name"
@@ -40,6 +42,7 @@ func _on_projectile_body_enter(body):
 	else:
 		if (body.has_method('take_damage')):
 			body.take_damage(self.damage)
+		if(style != style_enum.TRACE):
 			destroy()
 
 func destroy():

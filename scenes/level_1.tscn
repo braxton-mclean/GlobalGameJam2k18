@@ -1806,6 +1806,7 @@ modulate = Color( 1, 1, 1, 0.355176 )
 
 editor/display_folded = true
 transform/pos = Vector2( 217, 225 )
+player_type = 1
 
 [node name="Enemy" parent="." instance=ExtResource( 7 )]
 
@@ -1826,4 +1827,5 @@ transform/pos = Vector2( 823, 136 )
 [node name="Enemy4" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 644, 112 )
+
 

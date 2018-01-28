@@ -12,6 +12,7 @@ extents = Vector2( 16, 24 )
 
 script/script = ExtResource( 1 )
 BASE_SPEED = 50
+style = 0
 death_animation_name = "enter name"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -20,7 +21,7 @@ transform/rot = -90.0
 transform/scale = Vector2( 3, 2 )
 frames = ExtResource( 2 )
 animation = "default"
-frame = 18
+frame = 19
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

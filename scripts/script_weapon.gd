@@ -38,7 +38,7 @@ func _enter_tree():
 		set_weapon_params(10, 80, 1, 10, 15, 200, bullet_styles.PROJ)
 		bullet_type = preload('res://scenes/ammo/scene_metal_bullet.tscn')
 	if(weapon_type == weapon_list.ROBOT):
-		set_weapon_params(5, 30, 1, 10, 7, 200)
+		set_weapon_params(5, 30, 1, 10, 7, 200, bullet_styles.PROJ)
 		bullet_type = preload('res://scenes/ammo/scene_blue_ball.tscn')
 
 func _ready():

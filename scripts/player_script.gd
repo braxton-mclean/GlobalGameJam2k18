@@ -10,7 +10,6 @@ var player_node
 var weapon_1
 var weapon_2
 var active_weapon
-var status_effects_list
 var health = 100
 var status_effects_list = []
 
@@ -63,7 +62,7 @@ func _process(delta):
 	weapon_swap_cooldown = weapon_swap_cooldown + delta
 	turn(mouse_pos)
 	move_boi(delta)
-  if("Back" in get_node("AnimatedSprite").get_animation()):
+	if("Back" in get_node("AnimatedSprite").get_animation()):
 		active_weapon.set_draw_behind_parent(true)
 	else:
 		active_weapon.set_draw_behind_parent(false)
@@ -179,6 +178,7 @@ func shoot(player_position, mouse_position):
 				projectile.set_direction(direction.normalized())
 				projectile.set_speed(active_weapon.bullet_speed)
 				projectile.set_damage(active_weapon.base_damage) #  * get_status_effects_amount()
+				projectile.set_new_owner(self)
 				get_parent().add_child(projectile)
 			elif(active_weapon.bullet_style == active_weapon.bullet_styles.TRACE):
 				var middle_of_screen = get_viewport_rect().size
@@ -193,13 +193,14 @@ func shoot(player_position, mouse_position):
 				in_front_ray.force_raycast_update()
 				var end_of_line = in_front_ray.get_collision_point()
 				print("Entering for")
-				for num in range(0, projectile_spawn_loc.distance_to(end_of_line), 32):
+				for num in range(32, projectile_spawn_loc.distance_to(end_of_line), 32):
 					var projectile = active_weapon.bullet_type.instance()
 					projectile.set_pos(projectile_spawn_loc + (direction.normalized() * num))
 					projectile.look_at(player_position)
 					projectile.set_damage(active_weapon.base_damage)
 					projectile.set_speed(active_weapon.bullet_speed)
 					projectile.set_direction(direction.normalized())
+					projectile.set_new_owner(self)
 					get_parent().add_child(projectile)
 			fire_rate_delta = 0
 
@@ -241,7 +242,7 @@ func take_damage(dmg):
 
 func prep_death():
 	get_node('Camera2D').set_pos(self.get_pos())
-	get_node('Camera2D').set_new_owner(self.get_parent())
+	get_node('Camera2D').set_owner(self.get_parent())
 
 func destroy():
 	prep_death()
