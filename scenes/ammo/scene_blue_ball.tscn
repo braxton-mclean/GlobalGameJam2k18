@@ -17,12 +17,13 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 8.0
 
 [node name="Projectile" type="Node2D"]
 
 script/script = ExtResource( 1 )
 BASE_SPEED = 50
+style = 1
 death_animation_name = "enter name"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
