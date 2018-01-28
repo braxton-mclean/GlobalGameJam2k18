@@ -11,7 +11,7 @@ var weapon_1
 var weapon_2
 var active_weapon
 var status_effects_list
-
+var health = 100
 
 # Used to calculate fire rate
 var fire_rate_delta = 0
@@ -59,6 +59,8 @@ func _process(delta):
 	move_boi(delta)
 	shoot(player_pos, mouse_pos)
 	check_swap_weapon()
+	get_node("Label").set_text(str(self.health))
+
 
 func configure_player():
 	weapon_pack = preload("res://scenes/scene_weapon.tscn")
@@ -196,3 +198,18 @@ func turn(mouse_position):
 			ani_node.set_animation("IdleRight")
 	else:
 		ani_node.set_animation("Idle")
+		
+func take_damage(dmg):
+	self.health -= dmg
+	if self.health <= 0:
+		destroy()
+
+func prep_death():
+	get_node('Camera2D').set_pos(self.get_pos())
+	get_node('Camera2D').set_owner(self.get_parent())
+
+func destroy():
+	prep_death()
+	set_fixed_process(false)
+	queue_free()
+	

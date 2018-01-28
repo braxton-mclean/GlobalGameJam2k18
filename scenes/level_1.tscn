@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://sources/tilesets/cobble.tres" type="TileSet" id=1]
 [ext_resource path="res://sources/images/sprite_floor_tiles/sprite_gray_tile1.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://sources/images/sprite_floor_tiles/sprite_gray_tile2.png" type="Texture" id=4]
 [ext_resource path="res://sources/images/sprite_floor_tiles/sprite_cobblestone_floor.png" type="Texture" id=5]
 [ext_resource path="res://scenes/player_scene.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/scene_enemy_robot.tscn" type="PackedScene" id=7]
 
 [node name="RoomRoot" type="Node2D"]
 
@@ -1799,13 +1800,29 @@ transform/scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 modulate = Color( 1, 1, 1, 0.355176 )
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 6 )]
+[node name="player" parent="." instance=ExtResource( 6 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 217, 225 )
 
-[node name="AnimatedSprite" parent="KinematicBody2D"]
+[node name="Enemy" parent="." instance=ExtResource( 7 )]
 
-frame = 0
+transform/pos = Vector2( 775, 222 )
+
+[node name="Enemy1" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 719, 133 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 870, 270 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 823, 136 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 644, 112 )
 
 
-[editable path="KinematicBody2D"]
