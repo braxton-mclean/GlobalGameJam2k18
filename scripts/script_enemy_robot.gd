@@ -10,6 +10,7 @@ var fire_rate_delta = 0
 
 var aggro
 var player
+var path_to_player
 var weapon
 var weapon_pack
 var health
@@ -27,6 +28,7 @@ func _ready():
 	self.add_child(weapon)
 	if self.get_parent() != null:
 		player = self.get_parent().get_node('player')
+		path_to_player = player.get_path()
 	set_fixed_process(true)
 	
 func _fixed_process(delta):
@@ -35,7 +37,7 @@ func _fixed_process(delta):
 	get_node('HealthLabel').set_text(str(self.health))
 	
 func do_ai_pattern():
-	if player != null: 
+	if get_tree().get_root().has_node(path_to_player): 
 		var player_pos = player.get_pos()
 		var distance_to_player = self.get_pos().distance_to(player_pos)
 		var direction_to_player = player_pos - self.get_pos()

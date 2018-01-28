@@ -8,6 +8,7 @@ onready var bullet_sprite = get_node("AnimatedSprite")
 export var style = style_enum.PROJ
 var direction
 var damage
+var path_to_owner
 export var death_animation_name = "enter name"
 
 # Reference to this projectile's owner
@@ -19,6 +20,7 @@ func _ready():
 	set_fixed_process(true) #maybe weird?
 	get_node("AnimatedSprite").set_frame(0)
 	get_node("AnimatedSprite").play("default")
+	path_to_owner = projectile_owner.get_path()
 	pass
 	
 func _fixed_process(delta):
@@ -40,10 +42,14 @@ func _on_projectile_body_enter(body):
 	if (projectile_owner == body):
 		pass
 	else:
-		if (body.has_method('take_damage')):
+		if(get_tree().get_root().has_node(path_to_owner) and body.is_in_group(projectile_owner.get_groups()[0])):
+			pass
+		elif (body.has_method('take_damage')):
 			body.take_damage(self.damage)
-		if(style != style_enum.TRACE):
-			destroy()
+			if(style != style_enum.TRACE):
+				destroy()
+		else:
+			pass
 
 func destroy():
 	#add animation
