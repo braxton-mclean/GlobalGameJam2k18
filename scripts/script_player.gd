@@ -5,7 +5,7 @@ extends Node2D
 # get_node("res://scripts/script_weapons.gd")
 
 enum player_type_enum{HACKER, SNIPER, INFANTRY}
-export var player_type = player_type_enum.INFANTRY
+var player_type
 var weapon_pack
 
 var PLAYER_SPEED = 4

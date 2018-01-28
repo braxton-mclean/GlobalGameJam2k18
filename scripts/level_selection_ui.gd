@@ -16,10 +16,15 @@ onready var level_selection = get_node("MarginContainer/VerticalContainer/LevelS
 
 #reference to the ACTUAL levels
 onready var level_1_name = preload("res://scenes/level_1.tscn")
+var level_1_instance
 #onready var level_2_name = preload("res://scenes/level_2.tscn")
+var level_2_instance
 #onready var level_3_name = preload("res://scenes/level_3.tscn")
+var level_3_instance
+var level_list
 
-var level_names = [level_1_name]#, level_2_name, level_3_name]
+var player
+var player_instance
 
 var char_num
 
@@ -28,48 +33,50 @@ func _ready():
 	game_info_ref = preload("res://scenes/master_scene.tscn")
 	game_info_instance = game_info_ref.instance()
 	
+	level_1_instance = level_1_name.instance()
+	
+	level_list = [level_1_instance]#, level_2_name, level_3_name]
+	
+	player = preload("res://scenes/scene_player.tscn")
+	player_instance = player.instance()
+	player_instance.player_type = player_instance.player_type_enum.HACKER
 
 #The next three functions say that that particular player cannot be chosen again. After the button is pressed, it toggles the UI so you can select a level
 func _on_hacker_pressed():
-	game_info_instance.b_can_pick_character[0] = false
-	level_selection_visibility_toggle()
-	char_num = 0
-
+	char_select(0)
 	print ('hacker pressed') # replace with function body
 
 func _on_sniper_pressed():
-	game_info_instance.b_can_pick_character[1] = false
-	level_selection_visibility_toggle()
-	char_num = 1
-	
+	char_select(1)
 	print ('sniper pressed') # replace with function body
 
 func _on_infantry_pressed():
-	game_info_instance.b_can_pick_character[2] = false
-	level_selection_visibility_toggle()
-	char_num = 2
-
+	char_select(2)
 	print ('infantry pressed') # replace with function body
 
 
 #next three functions allow you to select a ui level. like before, sets that level so you cant pick it again. hides the ui, sets the level num in the master scene and sets the character number
 func _on_level_1_pressed():
-	game_info_instance.b_can_pick_level[0] = false
-	hide_UI()
-	game_info_instance.level_num = 0
-	game_info_instance.load_level(char_num)
+	level_select(0)
+	print ('level 1 loaded') 
 	
 func _on_level_2_pressed():
-	game_info_instance.b_can_pick_level[1] = false
-	hide_UI()
-	game_info_instance.level_num = 1
-	game_info_instance.load_level(char_num)
+	level_select(1)
 
 func _on_level_3_pressed():
-	game_info_instance.b_can_pick_level[2] = false
+	level_select(2)
+
+func char_select(num):
+	game_info_instance.b_can_pick_character[num] = false
+	level_selection_visibility_toggle()
+	char_num = num
+
+func level_select(num):
+	game_info_instance.b_can_pick_level[num] = false
 	hide_UI()
-	game_info_instance.level_num = 2
-	game_info_instance.load_level(char_num)
+	game_info_instance.level_num = num
+	get_tree().get_root().add_child(level_list[num])
+	get_tree().get_root().add_child(player_instance)
 
 
 func level_selection_visibility_toggle():
