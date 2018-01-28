@@ -4,7 +4,8 @@ extends Node2D
 
 export var BASE_SPEED = 50
 onready var bullet_sprite = get_node("AnimatedSprite")
-var direction;
+var direction
+var damage
 export var death_animation_name = "enter name"
 
 func _ready():
@@ -46,18 +47,5 @@ func set_direction(vector):
 func set_speed( desired_velocity ):
 	BASE_SPEED = desired_velocity
 
-
-	
-	
-	
-	
-	
-
-
-
-
-
-
-
-
-
+func set_damage(new_damage):
+	self.damage = new_damage

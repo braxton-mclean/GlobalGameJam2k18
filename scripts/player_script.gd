@@ -10,6 +10,7 @@ var player_node
 var weapon_1
 var weapon_2
 var active_weapon
+var status_effects_list
 
 
 # Used to calculate fire rate
@@ -24,14 +25,25 @@ func setup_character(should_reset):
 		weapon_pack = preload("res://scenes/scene_weapon.tscn")
 		weapon_1 = weapon_pack.instance()
 		weapon_2 = weapon_pack.instance()
+		var ani_node = get_node("AnimatedSprite")
+		var sprite_frame
 		if(player_type == player_type_enum.HACKER):
 			weapon_1.weapon_type = weapon_1.weapon_list.PISTOL
+			sprite_frame = load("res://sources/animations/player/player_precious_animation.tres")
+			ani_node.set_sprite_frames(sprite_frame)
+			ani_node.set_animation("Idle")
 		elif(player_type == player_type_enum.SNIPER):
 			weapon_1.weapon_type = weapon_1.weapon_list.SNIPER
 			weapon_2.weapon_type = weapon_2.weapon_list.PISTOL
+			sprite_frame = load("res://sources/animations/player/player_silent_animation.tres")
+			ani_node.set_sprite_frames(sprite_frame)
+			ani_node.set_animation("Idle")
 		elif(player_type == player_type_enum.INFANTRY):
 			weapon_1.weapon_type = weapon_1.weapon_list.AR
 			weapon_2.weapon_type = weapon_2.weapon_list.PISTOL
+			sprite_frame = load("res://sources/animations/player/player_louie_animation.tres")
+			ani_node.set_sprite_frames(sprite_frame)
+			ani_node.set_animation("Idle")
 		self.add_child(weapon_1)
 		if(weapon_2 != null):
 			self.add_child(weapon_2)
@@ -43,8 +55,8 @@ func _process(delta):
 	
 	fire_rate_delta = fire_rate_delta + delta
 	weapon_swap_cooldown = weapon_swap_cooldown + delta
+	turn(mouse_pos)
 	move_boi(delta)
-	
 	shoot(player_pos, mouse_pos)
 	check_swap_weapon()
 
@@ -145,12 +157,42 @@ func shoot(player_position, mouse_position):
 			
 			var direction = middle_of_screen - mouse_position
 			direction = direction * -1
-			print(direction)
 			var projectile_spawn_loc = player_position + direction.normalized() * BULLET_OFFSET
 			projectile.look_at(projectile_spawn_loc)
 			projectile.set_pos(projectile_spawn_loc)
 			
 			projectile.set_direction(direction.normalized())
 			projectile.set_speed(active_weapon.bullet_speed)
+			projectile.set_damage(active_weapon.base_damage) #  * get_status_effects_amount()
 			get_parent().add_child(projectile)
 			fire_rate_delta = 0
+
+func get_status_effects_amount():
+	var num = 1
+	for status in status_effects_list:
+		if (status.effectType == "damage"):
+			num *= status.intensity
+	return num
+
+func turn(mouse_position):
+	var middle_of_screen = get_viewport_rect().size
+	middle_of_screen *= .5
+	var direction = (middle_of_screen - mouse_position).normalized()
+	direction = direction * -1
+	var ani_node = get_node("AnimatedSprite")
+	
+	var up_left_weight = Vector2(-1,-1).angle_to(direction)
+	var up_right_weight = Vector2(1,-1).angle_to(direction)
+	var down_left_weight = Vector2(-1,1).angle_to(direction)
+	var down_right_weight = Vector2(1,1).angle_to(direction)
+	
+	if(up_left_weight < up_right_weight):
+		if(down_left_weight < up_right_weight):
+			if(up_left_weight < down_right_weight):
+				ani_node.set_animation("IdleBack")
+			else:
+				ani_node.set_animation("IdleLeft")
+		else:
+			ani_node.set_animation("IdleRight")
+	else:
+		ani_node.set_animation("Idle")
