@@ -9,24 +9,11 @@ var player_instance
 var b_can_pick_character = [true, true, true]
 var b_can_pick_level = [true, true, true]
 
-onready var level_1_name = preload("res://scenes/level_1.tscn")
-#onready var level_2_name = preload("res://scenes/level_2.tscn")
-#onready var level_3_name = preload("res://scenes/level_3.tscn")
-
-var level_1_instance
-var level_2_instance
-var level_3_instance
-
-var level_names = ["res://scenes/level_1.tscn"]
-
-var level_sprites = ["res://sources/images/"]# ADD IN THE LOCATION OF THE MAP ART
-
 var main_menu
 
 var class_type
 
-#var char_enum
-var level_num
+
 
 func _ready():
 	level_ui = preload("res://scenes/level_selection_ui.tscn")
@@ -35,20 +22,9 @@ func _ready():
 	player = preload("res://scenes/scene_player.tscn")
 	player_instance = player.instance()
 	
-	level_1_instance = level_1_name.instance()
-	
-	
-	
-	#ISSUE HERE!!!!! I CANNOT REFERENCE THE ENUMS FROM THE PLAYER_INSTANCE. JUST DOESNT WORK
-	class_type = player_instance.player_type_enum.HACKER
-	player_instance.player_type = class_type
 	#CREATE MAIN MENU
 		#MENU(PLAY) SHOULD ENABLE THE LEVELSELECTIONUI
 
-func load_level(type):
-	#get_tree().get_root().add_child(player)
-	#get_tree().get_root().add_child(player_instance)
-	get_tree().get_root().add_child(level_1_instance)
 
 func finish_level():
 	ui_instance.char_selection_visibility_toggle()
