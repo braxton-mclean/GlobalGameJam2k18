@@ -1,0 +1,21 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=1]
+
+[ext_resource path="res://sources/images/sprite_enemy_robot/sprite_enemy_robot3.png" type="Texture" id=1]
+[ext_resource path="res://sources/images/sprite_enemy_robot/sprite_enemy_robot4.png" type="Texture" id=2]
+[ext_resource path="res://sources/images/sprite_enemy_robot/sprite_enemy_robot1.png" type="Texture" id=3]
+[ext_resource path="res://sources/images/sprite_enemy_robot/sprite_enemy_robot2.png" type="Texture" id=4]
+
+[resource]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Angry",
+"speed": 5.0
+} ]
+

@@ -1,0 +1,48 @@
+[gd_resource type="SpriteFrames" load_steps=12 format=1]
+
+[ext_resource path="res://sources/images/sprite_player_characters/sprite_armed_hound/sprite_louie01.png" type="Texture" id=1]
+[ext_resource path="res://sources/images/sprite_player_characters/sprite_armed_hound/sprite_louie02.png" type="Texture" id=2]
+[ext_resource path="res://sources/images/sprite_player_characters/sprite_armed_hound/sprite_louie09.png" type="Texture" id=3]
+[ext_resource path="res://sources/images/sprite_player_characters/sprite_armed_hound/sprite_louie10.png" type="Texture" id=4]
+[ext_resource path="res://sources/images/sprite_player_characters/sprite_armed_hound/sprite_louie03.png" type="Texture" id=5]
+[ext_resource path="res://sources/images/sprite_player_characters/sprite_armed_hound/sprite_louie04.png" type="Texture" id=6]
+[ext_resource path="res://sources/images/sprite_player_characters/sprite_armed_hound/sprite_louie07.png" type="Texture" id=7]
+[ext_resource path="res://sources/images/sprite_player_characters/sprite_armed_hound/sprite_louie08.png" type="Texture" id=8]
+[ext_resource path="res://sources/images/sprite_player_characters/sprite_armed_hound/sprite_louie11.png" type="Texture" id=9]
+[ext_resource path="res://sources/images/sprite_player_characters/sprite_armed_hound/sprite_louie05.png" type="Texture" id=10]
+[ext_resource path="res://sources/images/sprite_player_characters/sprite_armed_hound/sprite_louie06.png" type="Texture" id=11]
+
+[resource]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "IdleLeft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Hurt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "IdleBack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "Dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "IdleRight",
+"speed": 5.0
+} ]
+
