@@ -8,6 +8,9 @@ var direction
 var damage
 export var death_animation_name = "enter name"
 
+# Reference to this projectile's owner
+var projectile_owner
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization 
@@ -20,23 +23,28 @@ func _fixed_process(delta):
 	if(BASE_SPEED != 0 and direction != null):
 		translate(direction*BASE_SPEED*delta)
 
-func hit_something():
-	set_fixed_process(false)
-	destroy()
+
 
 func _on_projectile_area_enter( area ):
 	# Hit an enemy or asteroid
 	if (area.has_method("projectile_collide")):#included in the enemy
 		# Duck typing at it's best
 		area.projectile_collide()
-		hit_something()
+  print ("hit area2d")
 
-func _on_projectile_body_enter( body ):
+func _on_projectile_body_enter(body):
 	# Hit the tilemap
-	hit_something()
+	print(body)
+	if (projectile_owner == body):
+		pass
+	else:
+		if (body.has_method('take_damage')):
+			body.take_damage(self.damage)
+			destroy()
 
 func destroy():
 	#add animation
+	set_fixed_process(false)	
 	queue_free()
 	
 func _on_timer_timeout():
@@ -50,6 +58,9 @@ func set_speed( desired_velocity ):
 
 func set_damage(new_damage):
 	self.damage = new_damage
+  
+func set_new_owner(new_owner):
+	projectile_owner = new_owner
 
 func _on_animatedsprite_finished():
 	destroy()

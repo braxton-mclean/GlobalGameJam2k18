@@ -1,7 +1,7 @@
 extends Node2D
 
 # class member variables go here, for example:
-enum weapon_list{AR, SNIPER, PISTOL}
+enum weapon_list{AR, SNIPER, PISTOL, ROBOT}
 enum bullet_styles{TRACE, PROJ}
 
 var ar_node = preload("res://sources/animations/item/assault_rifle/assault_rifle.tres")
@@ -29,14 +29,17 @@ var bullet_speed
 
 func _enter_tree():
 	if(weapon_type == weapon_list.AR):
-		set_weapon_params(30, 180, .12, 25, 30, 750, bullet_styles.PROJ)
+		set_weapon_params(30, 180, .5, 25, 30, 300, bullet_styles.PROJ)
 		bullet_type = preload('res://scenes/ammo/scene_metal_bullet.tscn')
 	if(weapon_type == weapon_list.SNIPER):
 		set_weapon_params(5, 30, 1, 100, 7, 0, bullet_styles.TRACE)
 		bullet_type = preload('res://scenes/ammo/scene_laser_burst.tscn')
 	if(weapon_type == weapon_list.PISTOL):
-		set_weapon_params(10, 80, .5, 10, 15, 750, bullet_styles.PROJ)
+		set_weapon_params(10, 80, 1, 10, 15, 200, bullet_styles.PROJ)
 		bullet_type = preload('res://scenes/ammo/scene_metal_bullet.tscn')
+	if(weapon_type == weapon_list.ROBOT):
+		set_weapon_params(5, 30, 1, 10, 7, 200)
+		bullet_type = preload('res://scenes/ammo/scene_blue_ball.tscn')
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -79,6 +82,6 @@ func set_weapon_params(mag_ammo, stash_ammo, fire_rate, damage, ammo_drop, bulle
 	self.curr_stash_ammo = stash_ammo
 	self.fire_rate = fire_rate
 	self.base_damage = damage
-	self.ammo_drop_amount =ammo_drop
+	self.ammo_drop_amount = ammo_drop
 	self.bullet_speed = bullet_speed
 	self.bullet_style = bullet_style
