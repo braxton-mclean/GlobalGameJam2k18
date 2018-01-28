@@ -25,15 +25,11 @@ func _ready():
 	
 	player = preload("res://scenes/player_scene.tscn")
 	player_instance = player.instance()
-
-func _on_timer_timeout():
-	#level_manager_instance.level_completed()
-	success()
 	
+func _on_timer_timeout():
+	success()
 
 func success():
-	game_info_ref = preload("res://scenes/master_scene.tscn")
-	game_info_instance = game_info_ref.instance()
 	
 #	game_info_instance.set_used_character(level_manager_instance.char_num)
 #	game_info_instance.set_used_level(level_manager_instance.level_num)
