@@ -30,6 +30,7 @@ tile_data = IntArray( -131056, 9, -131055, 0, -131054, 0, -131053, 0, -131052, 8
 [node name="FloorSpaceNode" type="Node2D" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 
 [node name="sprite_grey_tile" type="Sprite" parent="FloorSpaceNode"]
 
@@ -1801,6 +1802,10 @@ modulate = Color( 1, 1, 1, 0.355176 )
 [node name="KinematicBody2D" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 217, 225 )
+
+[node name="AnimatedSprite" parent="KinematicBody2D"]
+
+frame = 0
 
 
 [editable path="KinematicBody2D"]
