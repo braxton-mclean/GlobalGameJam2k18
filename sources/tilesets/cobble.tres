@@ -30,15 +30,10 @@ extents = Vector2( 16, 16 )
 custom_solver_bias = 0.0
 extents = Vector2( 16, 10 )
 
-[sub_resource type="RectangleShape2D" id=7]
-
-custom_solver_bias = 0.0
-extents = Vector2( 8, 8 )
-
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 16, 16 )
+extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=4]
 
@@ -51,6 +46,11 @@ custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
 [sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
@@ -87,7 +87,7 @@ extents = Vector2( 16, 16 )
 2/occluder_offset = Vector2( 16, 16 )
 2/navigation_offset = Vector2( 16, 16 )
 2/shape_offset = Vector2( 16, 16 )
-2/shapes = [ SubResource( 3 ) ]
+2/shapes = [ SubResource( 4 ) ]
 2/one_way_collision_direction = Vector2( 0, 0 )
 2/one_way_collision_max_depth = 0.0
 3/name = "Cobble_Wall_Dark"
@@ -98,7 +98,7 @@ extents = Vector2( 16, 16 )
 3/occluder_offset = Vector2( 16, 16 )
 3/navigation_offset = Vector2( 16, 16 )
 3/shape_offset = Vector2( 16, 16 )
-3/shapes = [ SubResource( 4 ) ]
+3/shapes = [ SubResource( 5 ) ]
 3/one_way_collision_direction = Vector2( 0, 0 )
 3/one_way_collision_max_depth = 0.0
 4/name = "Cobble_Tile_Floor"
@@ -153,7 +153,7 @@ extents = Vector2( 16, 16 )
 8/occluder_offset = Vector2( 16, 16 )
 8/navigation_offset = Vector2( 16, 16 )
 8/shape_offset = Vector2( 16, 16 )
-8/shapes = [ SubResource( 5 ) ]
+8/shapes = [ SubResource( 6 ) ]
 8/one_way_collision_direction = Vector2( 0, 0 )
 8/one_way_collision_max_depth = 0.0
 9/name = "Cobble_Wall_Left"
@@ -164,7 +164,7 @@ extents = Vector2( 16, 16 )
 9/occluder_offset = Vector2( 16, 16 )
 9/navigation_offset = Vector2( 16, 16 )
 9/shape_offset = Vector2( 16, 16 )
-9/shapes = [ SubResource( 6 ) ]
+9/shapes = [ SubResource( 7 ) ]
 9/one_way_collision_direction = Vector2( 0, 0 )
 9/one_way_collision_max_depth = 0.0
 10/name = "Invisible_Wall"
@@ -175,7 +175,7 @@ extents = Vector2( 16, 16 )
 10/occluder_offset = Vector2( 8, 8 )
 10/navigation_offset = Vector2( 8, 8 )
 10/shape_offset = Vector2( 8, 8 )
-10/shapes = [ SubResource( 7 ) ]
+10/shapes = [ SubResource( 3 ) ]
 10/one_way_collision_direction = Vector2( 0, 0 )
 10/one_way_collision_max_depth = 0.0
 11/name = "Cobble_Wall_Bottom"

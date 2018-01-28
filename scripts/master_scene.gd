@@ -3,6 +3,8 @@ extends Node2D
 var level_ui
 var ui_instance
 
+var if_edited
+
 var player
 var player_instance
 #hacker = 0, sniper = 1, infantry = 2
@@ -14,6 +16,8 @@ var main_menu
 var class_type
 
 
+var char_num
+var level_num
 
 func _ready():
 	level_ui = preload("res://scenes/level_selection_ui.tscn")
@@ -24,10 +28,13 @@ func _ready():
 	
 	#CREATE MAIN MENU
 		#MENU(PLAY) SHOULD ENABLE THE LEVELSELECTIONUI
+	b_can_pick_character = [true, true, true]
+	b_can_pick_level = [true, true, true]
 
 
 func finish_level():
-	ui_instance.char_selection_visibility_toggle()
+	# ui_instance.char_selection_visibility_toggle()
+	pass
 
 
 

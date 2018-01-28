@@ -3,8 +3,10 @@ extends Node2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-export var spawn_location = Vector2(1088, 864)
+export var spawn_location = Vector2(1088, 870)
 var list_of_transmission_buffs = ["SNIPER"]
+var game_info_instance
+var level_manager_instance
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -35,3 +37,11 @@ func _on_r4_body_enter( area ):
 func activate_buff(room_num, list_of_transmission_buffs):
 	var buff_manager = get_tree().get_root().get_node("BuffManager")
 	buff_manager.activate_buffs(room_num, list_of_transmission_buffs)
+
+
+func _on_complete_body_enter( body ):
+	level_manager_instance.char_selection_visibility_toggle()
+#	self.set_hidden(true)
+	level_manager_instance.set_hidden(false)
+	self.queue_free()
+	pass # replace with function body

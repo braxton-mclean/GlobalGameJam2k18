@@ -1,10 +1,17 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://scripts/level_1_1_info.gd" type="Script" id=1]
 [ext_resource path="res://sources/tilesets/cobble.tres" type="TileSet" id=2]
 [ext_resource path="res://scenes/scene_enemy_robot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/health_pickup_scene.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ammo_pickup_scene.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
@@ -12,7 +19,7 @@ extents = Vector2( 32, 32 )
 [node name="RoomRoot" type="Node2D"]
 
 script/script = ExtResource( 1 )
-spawn_location = Vector2( 1088, 864 )
+spawn_location = Vector2( 1088, 870 )
 
 [node name="TileMap" type="TileMap" parent="." groups=[
 "walls",
@@ -74,13 +81,13 @@ transform/pos = Vector2( -601.792, 955.008 )
 "room_1",
 ] instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 1236.01, 124.223 )
+transform/pos = Vector2( 1212.04, 624.242 )
 
 [node name="Enemy9" parent="." groups=[
 "room_1",
 ] instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 1079.92, 96.5298 )
+transform/pos = Vector2( 1031.97, 606.823 )
 
 [node name="Room1_Area" type="Area2D" parent="."]
 
@@ -99,6 +106,14 @@ angular_damp = 1.0
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="Node2D" parent="Room1_Area" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -1545.88, 297.646 )
+
+[node name="Node2D 2" parent="Room1_Area" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -1712.89, 299.316 )
 
 [node name="Room2_Area" type="Area2D" parent="."]
 
@@ -154,6 +169,25 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
+[node name="Complete_Area" type="Area2D" parent="."]
+
+transform/pos = Vector2( -507.829, 875.889 )
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -2.72076, 61.2167 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Complete_Area"]
+
+transform/pos = Vector2( -2.72076, 61.2167 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
 [connection signal="body_enter" from="Room1_Area" to="." method="_on_r1_body_enter"]
 
 [connection signal="body_enter" from="Room2_Area" to="." method="_on_r2_body_enter"]
@@ -161,5 +195,7 @@ _update_shape_index = 0
 [connection signal="body_enter" from="Room3_Area" to="." method="_on_r3_body_enter"]
 
 [connection signal="body_enter" from="Room4_Area" to="." method="_on_r4_body_enter"]
+
+[connection signal="body_enter" from="Complete_Area" to="." method="_on_complete_body_enter"]
 
 
