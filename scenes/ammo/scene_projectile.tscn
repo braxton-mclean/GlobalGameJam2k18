@@ -30,7 +30,6 @@ death_animation_name = "enter name"
 transform/scale = Vector2( 3, 3 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
