@@ -10,9 +10,7 @@
 
 [node name="RoomRoot" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="." groups=[
-"walls",
-]]
+[node name="TileMap" type="TileMap" parent="."]
 
 mode = 0
 tile_set = ExtResource( 1 )
@@ -1807,6 +1805,8 @@ modulate = Color( 1, 1, 1, 0.355176 )
 editor/display_folded = true
 transform/pos = Vector2( 217, 225 )
 player_type = 1
+PLAYER_SPEED = 200
+BULLET_OFFSET = 20
 
 [node name="Enemy" parent="." instance=ExtResource( 7 )]
 

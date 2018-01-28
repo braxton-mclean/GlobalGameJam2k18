@@ -18,7 +18,7 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-player_type = 2
+player_type = 1
 PLAYER_SPEED = 200
 BULLET_OFFSET = 20
 
@@ -81,10 +81,4 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="TraceRay" type="RayCast2D" parent="."]
-
-enabled = false
-cast_to = Vector2( 0, 50 )
-layer_mask = 1
-type_mask = 15
 
