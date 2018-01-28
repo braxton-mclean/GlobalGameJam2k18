@@ -9,7 +9,9 @@
 
 [node name="RoomRoot" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." groups=[
+"walls",
+]]
 
 mode = 0
 tile_set = ExtResource( 1 )
@@ -1799,13 +1801,10 @@ transform/scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 modulate = Color( 1, 1, 1, 0.355176 )
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 6 )]
+[node name="Player" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 217, 225 )
-
-[node name="AnimatedSprite" parent="KinematicBody2D"]
-
-frame = 0
+player_type = 1
 
 
-[editable path="KinematicBody2D"]
+[editable path="Player"]

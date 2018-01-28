@@ -1,0 +1,27 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=1]
+
+[ext_resource path="res://sources/images/guns/sprite_laser_gun/sprite_laser_gun01.png" type="Texture" id=1]
+[ext_resource path="res://sources/images/guns/sprite_laser_gun/sprite_laser_gun10.png" type="Texture" id=2]
+[ext_resource path="res://sources/images/guns/sprite_laser_gun/sprite_laser_gun09.png" type="Texture" id=3]
+[ext_resource path="res://sources/images/guns/sprite_laser_gun/sprite_laser_gun08.png" type="Texture" id=4]
+[ext_resource path="res://sources/images/guns/sprite_laser_gun/sprite_laser_gun07.png" type="Texture" id=5]
+[ext_resource path="res://sources/images/guns/sprite_laser_gun/sprite_laser_gun06.png" type="Texture" id=6]
+[ext_resource path="res://sources/images/guns/sprite_laser_gun/sprite_laser_gun05.png" type="Texture" id=7]
+[ext_resource path="res://sources/images/guns/sprite_laser_gun/sprite_laser_gun04.png" type="Texture" id=8]
+[ext_resource path="res://sources/images/guns/sprite_laser_gun/sprite_laser_gun03.png" type="Texture" id=9]
+[ext_resource path="res://sources/images/guns/sprite_laser_gun/sprite_laser_gun02.png" type="Texture" id=10]
+
+[resource]
+
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "Fire",
+"speed": 5.0
+} ]
+
