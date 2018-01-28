@@ -16,22 +16,26 @@ var active_weapon
 var fire_rate_delta = 0
 var weapon_swap_cooldown = 0
 func _ready():
-	weapon_pack = preload("res://scenes/scene_weapon.tscn")
-	weapon_1 = weapon_pack.instance()
-	weapon_2 = weapon_pack.instance()
-	if(player_type == player_type_enum.HACKER):
-		weapon_1.weapon_type = weapon_1.weapon_list.PISTOL
-	elif(player_type == player_type_enum.SNIPER):
-		weapon_1.weapon_type = weapon_1.weapon_list.SNIPER
-		weapon_2.weapon_type = weapon_2.weapon_list.PISTOL
-	elif(player_type == player_type_enum.INFANTRY):
-		weapon_1.weapon_type = weapon_1.weapon_list.AR
-		weapon_2.weapon_type = weapon_2.weapon_list.PISTOL
-	self.add_child(weapon_1)
-	if(weapon_2 != null):
-		self.add_child(weapon_2)
-	active_weapon = weapon_1
+	setup_character(true)
 	set_process(true)
+	
+func setup_character(should_reset):
+	if (should_reset == true):
+		weapon_pack = preload("res://scenes/scene_weapon.tscn")
+		weapon_1 = weapon_pack.instance()
+		weapon_2 = weapon_pack.instance()
+		if(player_type == player_type_enum.HACKER):
+			weapon_1.weapon_type = weapon_1.weapon_list.PISTOL
+		elif(player_type == player_type_enum.SNIPER):
+			weapon_1.weapon_type = weapon_1.weapon_list.SNIPER
+			weapon_2.weapon_type = weapon_2.weapon_list.PISTOL
+		elif(player_type == player_type_enum.INFANTRY):
+			weapon_1.weapon_type = weapon_1.weapon_list.AR
+			weapon_2.weapon_type = weapon_2.weapon_list.PISTOL
+		self.add_child(weapon_1)
+		if(weapon_2 != null):
+			self.add_child(weapon_2)
+		active_weapon = weapon_1
 
 func _process(delta):
 	var mouse_pos = get_viewport().get_mouse_pos()
@@ -146,6 +150,7 @@ func shoot(player_position, mouse_position):
 			projectile.look_at(projectile_spawn_loc)
 			projectile.set_pos(projectile_spawn_loc)
 			
-			projectile.set_direction(direction.normalized() * active_weapon.bullet_speed)
+			projectile.set_direction(direction.normalized())
+			projectile.set_speed(active_weapon.bullet_speed)
 			get_parent().add_child(projectile)
 			fire_rate_delta = 0

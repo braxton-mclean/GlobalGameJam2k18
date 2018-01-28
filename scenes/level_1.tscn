@@ -1802,9 +1802,5 @@ modulate = Color( 1, 1, 1, 0.355176 )
 
 transform/pos = Vector2( 217, 225 )
 
-[node name="AnimatedSprite" parent="KinematicBody2D"]
-
-frame = 0
-
 
 [editable path="KinematicBody2D"]
