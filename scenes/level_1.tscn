@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://sources/tilesets/cobble.tres" type="TileSet" id=1]
 [ext_resource path="res://sources/images/sprite_floor_tiles/sprite_gray_tile1.png" type="Texture" id=2]
 [ext_resource path="res://sources/images/sprite_floor_tiles/sprite_gray_tile3.png" type="Texture" id=3]
 [ext_resource path="res://sources/images/sprite_floor_tiles/sprite_gray_tile2.png" type="Texture" id=4]
 [ext_resource path="res://sources/images/sprite_floor_tiles/sprite_cobblestone_floor.png" type="Texture" id=5]
-[ext_resource path="res://scenes/player_scene.tscn" type="PackedScene" id=6]
 
 [node name="RoomRoot" type="Node2D"]
 
@@ -1801,10 +1800,4 @@ transform/scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 modulate = Color( 1, 1, 1, 0.355176 )
 
-[node name="Player" parent="." instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 217, 225 )
-player_type = 1
-
-
-[editable path="Player"]

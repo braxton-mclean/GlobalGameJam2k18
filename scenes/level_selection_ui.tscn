@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://scripts/level_selection_ui.gd" type="Script" id=1]
 [ext_resource path="res://sources/images/sprite_tabletop.png" type="Texture" id=2]
-[ext_resource path="res://sources/images/sprite_temp_players/sprite_basic_character/sprite_playrchar01.png" type="Texture" id=3]
-[ext_resource path="res://sources/images/sprite_temp_players/sprite_basic_character/sprite_playrchar03.png" type="Texture" id=4]
-[ext_resource path="res://sources/images/sprite_temp_players/sprite_basic_character/sprite_playrchar11.png" type="Texture" id=5]
+[ext_resource path="res://sources/images/sprite_player_characters/sprite_character_buttons/sprite_character_buttons1.png" type="Texture" id=3]
+[ext_resource path="res://sources/images/sprite_player_characters/sprite_character_buttons/sprite_character_buttons3.png" type="Texture" id=4]
+[ext_resource path="res://sources/images/sprite_player_characters/sprite_character_buttons/sprite_character_buttons5.png" type="Texture" id=5]
+[ext_resource path="res://sources/images/sprite_temp_players/sprite_basic_character/sprite_playrchar01.png" type="Texture" id=6]
+[ext_resource path="res://sources/images/sprite_temp_players/sprite_basic_character/sprite_playrchar03.png" type="Texture" id=7]
+[ext_resource path="res://sources/images/sprite_temp_players/sprite_basic_character/sprite_playrchar11.png" type="Texture" id=8]
 
 [node name="MainUI" type="Control"]
 
@@ -85,15 +88,16 @@ alignment = 1
 
 [node name="HackerContainer" type="HBoxContainer" parent="MarginContainer/VerticalContainer/CharSelection"]
 
+rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
 size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 336.0
-margin/bottom = 447.0
-alignment = 0
+margin/left = 60.0
+margin/top = 50.0
+margin/right = 396.0
+margin/bottom = 497.0
+alignment = 1
 
 [node name="Hacker" type="TextureButton" parent="MarginContainer/VerticalContainer/CharSelection/HackerContainer"]
 
@@ -115,15 +119,16 @@ params/stretch_mode = 0
 
 [node name="SniperContainer" type="HBoxContainer" parent="MarginContainer/VerticalContainer/CharSelection"]
 
+rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
 size_flags/vertical = 2
-margin/left = 340.0
-margin/top = 0.0
-margin/right = 676.0
-margin/bottom = 447.0
-alignment = 0
+margin/left = 400.0
+margin/top = 50.0
+margin/right = 736.0
+margin/bottom = 497.0
+alignment = 1
 
 [node name="Sniper" type="TextureButton" parent="MarginContainer/VerticalContainer/CharSelection/SniperContainer"]
 
@@ -145,15 +150,16 @@ params/stretch_mode = 0
 
 [node name="InfantryContainer" type="HBoxContainer" parent="MarginContainer/VerticalContainer/CharSelection"]
 
+rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
 size_flags/vertical = 2
-margin/left = 680.0
-margin/top = 0.0
-margin/right = 1016.0
-margin/bottom = 447.0
-alignment = 0
+margin/left = 740.0
+margin/top = 50.0
+margin/right = 1076.0
+margin/bottom = 497.0
+alignment = 1
 
 [node name="Infantry" type="TextureButton" parent="MarginContainer/VerticalContainer/CharSelection/InfantryContainer"]
 
@@ -213,7 +219,7 @@ toggle_mode = true
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 3 )
+textures/normal = ExtResource( 6 )
 params/resize_mode = 1
 params/stretch_mode = 0
 
@@ -243,7 +249,7 @@ toggle_mode = true
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 4 )
+textures/normal = ExtResource( 7 )
 params/resize_mode = 1
 params/stretch_mode = 0
 
@@ -273,7 +279,7 @@ toggle_mode = true
 click_on_press = true
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 5 )
+textures/normal = ExtResource( 8 )
 params/resize_mode = 1
 params/stretch_mode = 0
 

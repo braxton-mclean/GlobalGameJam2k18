@@ -78,7 +78,10 @@ func level_select(num):
 	game_info_instance.b_can_pick_level[num] = false
 	hide_UI()
 	get_tree().get_root().add_child(level_list[num])
+	player_instance.set_pos(Vector2(250, 250))
 	get_tree().get_root().add_child(player_instance)
+	
+	
 
 
 func level_selection_visibility_toggle():
