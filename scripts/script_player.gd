@@ -8,7 +8,7 @@ enum player_type_enum{HACKER, SNIPER, INFANTRY}
 export var player_type = player_type_enum.INFANTRY
 var weapon_pack
 
-var PLAYER_SPEED = 4
+export var PLAYER_SPEED = 200
 export var BULLET_OFFSET = 30
 var player_node
 var weapon_1
@@ -44,12 +44,12 @@ func _process(delta):
 	
 	fire_rate_delta = fire_rate_delta + delta
 	weapon_swap_cooldown = weapon_swap_cooldown + delta
-	move()
+	move(delta)
 	
 	shoot(player_pos, mouse_pos)
 	check_swap_weapon()
 
-func move():
+func move(delta):
 	var direction_vert = Vector2(0,0)
 	var direction_hor = Vector2(0,0)
 	
@@ -64,7 +64,7 @@ func move():
 		direction_hor = Vector2(-1, 0)
 	
 	var direction = (direction_vert + direction_hor).normalized()
-	self.translate(direction* PLAYER_SPEED)
+	self.translate(direction* PLAYER_SPEED*delta)
 	
 
 

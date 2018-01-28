@@ -1781,5 +1781,7 @@ modulate = Color( 1, 1, 1, 0.355176 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
 
+PLAYER_SPEED = 200
+
 
 [editable path="player"]
