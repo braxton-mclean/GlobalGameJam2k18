@@ -1,0 +1,203 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://sources/images/ui/title.png" type="Texture" id=1]
+[ext_resource path="res://sources/images/ui/start.png" type="Texture" id=2]
+[ext_resource path="res://sources/images/ui/level_select.png" type="Texture" id=3]
+[ext_resource path="res://sources/images/pictures/temp_background.png" type="Texture" id=4]
+[ext_resource path="res://sources/images/characters/hacker/idle/idle_01.png" type="Texture" id=5]
+[ext_resource path="res://sources/images/characters/hacker/idle/idle_02.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="TitleScreenUI" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1024.0
+margin/bottom = 600.0
+
+[node name="TitleSetContainer" type="VBoxContainer" parent="."]
+
+anchor/left = 2
+anchor/top = 2
+anchor/right = 2
+anchor/bottom = 2
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.1
+margin/top = 0.1
+margin/right = 0.899609
+margin/bottom = 0.3
+alignment = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TitlePanelContainer" type="PanelContainer" parent="TitleSetContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 818.0
+margin/bottom = 120.0
+
+[node name="TitleImage" type="TextureFrame" parent="TitleSetContainer/TitlePanelContainer"]
+
+rect/min_size = Vector2( 512, 64 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 0
+size_flags/vertical = 0
+margin/left = 153.0
+margin/top = 28.0
+margin/right = 665.0
+margin/bottom = 92.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 0
+
+[node name="StartSetContainer" type="VBoxContainer" parent="."]
+
+anchor/left = 2
+anchor/top = 2
+anchor/right = 2
+anchor/bottom = 2
+rect/min_size = Vector2( 200, 60 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.200195
+margin/top = 0.4
+margin/right = 0.395508
+margin/bottom = 0.5
+alignment = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StartPanelContainer" type="PanelContainer" parent="StartSetContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 200.0
+margin/bottom = 62.0
+
+[node name="StartImage" type="TextureFrame" parent="StartSetContainer/StartPanelContainer"]
+
+rect/min_size = Vector2( 128, 48 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 0
+size_flags/vertical = 0
+margin/left = 36.0
+margin/top = 7.0
+margin/right = 164.0
+margin/bottom = 55.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 0
+
+[node name="OptionsSetContainer" type="VBoxContainer" parent="."]
+
+anchor/left = 2
+anchor/top = 2
+anchor/right = 2
+anchor/bottom = 2
+rect/min_size = Vector2( 200, 60 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.200195
+margin/top = 0.55
+margin/right = 0.395508
+margin/bottom = 0.65
+alignment = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="OptionsPanelContainer" type="PanelContainer" parent="OptionsSetContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 200.0
+margin/bottom = 60.0
+
+[node name="OptionsImage" type="TextureFrame" parent="OptionsSetContainer/OptionsPanelContainer"]
+
+rect/min_size = Vector2( 128, 28 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 0
+size_flags/vertical = 0
+margin/left = 36.0
+margin/top = 16.0
+margin/right = 164.0
+margin/bottom = 44.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 0
+
+[node name="BackgroundElements" type="Control" parent="."]
+
+visibility/behind_parent = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="BackgroundImage" type="TextureFrame" parent="BackgroundElements"]
+
+visibility/behind_parent = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1024.0
+margin/bottom = 600.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="BackgroundElements"]
+
+transform/pos = Vector2( 808.196, 403.363 )
+transform/scale = Vector2( 5.10601, 5.68096 )
+frames = SubResource( 1 )
+animation = "default"
+frame = 1
+playing = true
+
+
